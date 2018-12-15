@@ -1,0 +1,134 @@
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+
+    <title>YouTube</title>
+    <link rel="shortcut icon" href="https://images.vexels.com/media/users/3/137425/isolated/preview/f2ea1ded4d037633f687ee389a571086-logotipo-de-youtube-icono-by-vexels.png">
+
+    <link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Oxygen', sans-serif;
+            width: 100vw; 
+            height: 100vh;
+            background-image: url(https://i.pinimg.com/originals/6f/55/50/6f55500dca2a884e37b8d1a50eda009a.png) ;
+        }
+        .imageny{
+            width: 110px;
+            height: 50px;
+        }
+        #cuerpo{
+
+            width: 80vw; 
+            height: 80vh;
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <div class="container">
+        <div class="row fixed-top">
+            <div class="col-md-3 bg-light border-dark d-flex justify-content-center d-flex align-items-center">
+                <img class="imageny" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Logo_of_YouTube_%282015-2017%29.svg/1280px-Logo_of_YouTube_%282015-2017%29.svg.png">
+            </div>
+            <div class="col-md-9 bg-dark text-white border-white pt-3">
+                <div class="form-group row">
+                    <label for="colFormLabelSm" class="col-md-2 col-form-label col-form-label">Buscar</label>
+                    <div class="input-group col-md-7">
+
+                        <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Buscar">
+                        <div class="input-group-prepend">
+                            <button class="input-group-text" onclick="Listar()" onkeypress="pulsar()" id="boton"><i class="fas fa-search"
+                                    title="Buscar"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5 mb-5 bg-transparent d-flex align-items-center">
+            <div class="mt-5 " id="listaVideos">
+
+            </div>
+        </div>
+
+        <div class="row col-md-12" id="cuerpo">
+            <div class="bg-light col-md-6 m-3">
+
+            </div>
+            <div class="bg-light col-md-6 m-3">
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!--******************************************************************************************************************************-->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+
+
+    <script>
+
+        var listado = document.getElementById('listaVideos');
+
+        function pulsar(e) {
+            if (e.keyCode === 13 && !e.shiftKey) {
+                e.preventDefault();
+                var boton = document.getElementById("boton");
+                angular.element(boton).triggerHandler('click');
+            }
+        }
+
+        function Listar() {
+
+            var busqueda = $('#inlineFormInputGroup').val();
+
+            console.log(busqueda.replace(" ", "+"))
+            var buscard = busqueda.replace(" ", "+");
+
+
+            $.ajax({
+                url: 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&order=viewCount&q=' + buscard + '&type=video&videoDefinition=any&key=AIzaSyD8KtrA3UwaI4wDZ6nxe4WOzqNfWxxjts4',
+
+                success: function (res) {
+                    console.log(res)
+                    cadena = '';
+                    for (const item of res.items) {
+                        cadena += `
+                        
+                                <iframe  src= "http://www.youtube.com/embed/`+ item.id.videoId + `"></iframe>
+                                <div class="text-white"  >`+item.snippet.description+ `</div>
+                                `;
+                    }
+                    listado.innerHTML = cadena
+                }
+            });
+
+
+        }
+
+    </script>
+
+</body>
+
+</html>
