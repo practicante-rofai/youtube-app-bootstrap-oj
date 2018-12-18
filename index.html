@@ -89,34 +89,8 @@
         <!--SECCION VIDEOS-->
         <section class="mt-5 ">
         
-            <div class="seccionp col-md-12 row p-0 m-0">
+            <div class="seccionp col-md-12 row p-0 m-0 " id="listaVideos">
                 
-                <div class="cardlista card col-md-2 m-3 border-white">
-                    oiyaopiy
-                </div>
-                <div class="cardlista card col-md-2 m-3 border-white">
-                    iwdoigs
-                </div>
-                <div class="cardlista col-md-2  m-3 card border-white">
-                    lsihdo
-                </div>
-                <div class="cardlista card col-md-2 m-3 border-white">
-                    oiyaopiy
-                </div>
-                <div class="cardlista card col-md-2 m-3 border-white">
-                    iwdoigs
-                </div>
-                <div class="cardlista col-md-2  m-3 card border-white">
-                    lsihdo
-                </div><div class="cardlista card col-md-2 m-3 border-white">
-                    oiyaopiy
-                </div>
-                <div class="cardlista card col-md-2 m-3 border-white">
-                    iwdoigs
-                </div>
-                <div class="cardlista col-md-2  m-3 card border-white">
-                    lsihdo
-                </div>
 
             </div>
 
@@ -177,12 +151,12 @@
                     cadena = '';
                     for (const item of res.items) {
                         cadena += `
-                                <div class="cardlista card col-md-2 m-3 border-primary">
+                                <div class="cardlista card col-md-2 m-3 border-primary ">
                                 <div class="card-body">
-                                <iframe  src= "http://www.youtube.com/embed/`+ item.id.videoId + `"></iframe>
+                                <iframe class="" src= "http://www.youtube.com/embed/`+ item.id.videoId + `"></iframe>
                                 </div>
                                 <div class="card-footer">
-                                <div class="text-white"  >`+item.snippet.description+ `</div>
+                                <div  >`+item.snippet.description+ `</div>
                                 </div>
                                 </div>
                                 `;
