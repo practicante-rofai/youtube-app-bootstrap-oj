@@ -16,11 +16,12 @@
     <title>YouTube</title>
     <link rel="shortcut icon" href="https://images.vexels.com/media/users/3/137425/isolated/preview/f2ea1ded4d037633f687ee389a571086-logotipo-de-youtube-icono-by-vexels.png">
 
-    <link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Gochi+Hand|Kalam" rel="stylesheet">
 
     <style>
         body {
-            font-family: 'Oxygen', sans-serif;
+            font-family: 'Kalam', cursive;
+font-family: 'Gochi Hand', cursive;
             width: 100vw; 
             height: 100vh;
             /*background-image: url(https://i.pinimg.com/originals/6f/55/50/6f55500dca2a884e37b8d1a50eda009a.png) ;*/
@@ -64,9 +65,15 @@
     <!--CABECERA DE BUSQUEDA-->
         <header class="fixed-top">
             <div class="row filacabecera">
-                <div class="col-md-3   bg-white m-0 d-flex justify-content-center">
-                        <img class="imageny m-2" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Logo_of_YouTube_%282015-2017%29.svg/1280px-Logo_of_YouTube_%282015-2017%29.svg.png">
+                <div class="col-md-3 row bg-white m-0 mb-1">
+                <div class="col-md-5 d-flex justify-content-center d-flex align-items-center "style="background-color:black">
+                    <i class="fas fa-bars fa-lg" style="color:white"></i>
                 </div>
+                <div class="col-md-5 ml-3 ">
+                        <img class="imageny m-2 d-flex justify-content-center" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Logo_of_YouTube_%282015-2017%29.svg/1280px-Logo_of_YouTube_%282015-2017%29.svg.png">
+                </div>
+            </div>
+
                 <div class="col-md-5 m-0 p-0 d-flex align-items-center">
                     
                     <label for="colFormLabelSm" class="col-md-2 col-form-label col-form-label text-white">Buscar</label>
@@ -80,8 +87,8 @@
                     </div>
              
                 </div>
-                <div class="col-md-3  ml-auto m-0">
-                    <p>sesion y enlaces</p>
+                <div class="col-md-3  ml-auto m-0 p-3 pr-5">
+                <i class="fas fa-user float-right fa-lg" style="color:white"></i>
                 </div>
             </div>
         </header>
@@ -100,11 +107,11 @@
          <div class="bg-dark">
         &nbsp
         </div>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/riNTLAHnAnU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
         <!--ESPACIO REPRODUCCION-->
         <div class="col-md-12 p-0 h-50 d-flex justify-content-center ">
             <div class="col-6 bg-dark m-5 ">
-                
 
             </div>
 
@@ -142,6 +149,11 @@
             console.log(busqueda.replace(" ", "+"))
             var buscard = busqueda.replace(" ", "+");
 
+            var player;
+
+
+      
+
 
             $.ajax({
                 url: 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&order=viewCount&q=' + buscard + '&type=video&videoDefinition=any&key=AIzaSyD8KtrA3UwaI4wDZ6nxe4WOzqNfWxxjts4',
@@ -151,12 +163,12 @@
                     cadena = '';
                     for (const item of res.items) {
                         cadena += `
-                                <div class="cardlista card col-md-2 m-3 border-primary ">
-                                <div class="card-body">
-                                <iframe class="" src= "http://www.youtube.com/embed/`+ item.id.videoId + `"></iframe>
+                                <div class="cardlista card col-md-2 m-3 border-primary p-0 d-flex align-items-center pt-1">
+                                <div class="card-body p-0">
+                                <iframe class="p-0" width="200" height="100" src= "http://www.youtube.com/embed/`+ item.id.videoId + `"></iframe>
                                 </div>
                                 <div class="card-footer">
-                                <div  >`+item.snippet.description+ `</div>
+                                <div >`+item.snippet.description+ `</div>
                                 </div>
                                 </div>
                                 `;
