@@ -19,19 +19,30 @@
     <link href="https://fonts.googleapis.com/css?family=Gochi+Hand|Kalam" rel="stylesheet">
 
     <style>
+
+        .carta{
+            height: 330px;
+            transition: transform .2s;
+            background-image: linear-gradient(to bottom, #6c79fb, #4895ff, #34acff, #49c1ff, #70d3ff);
+
+        }
+        .carta:hover {
+            transform: scale(1.2);
+        }
         body {
-            font-family: 'Kalam', cursive;
-font-family: 'Gochi Hand', cursive;
+            font-family: 'Rubik', sans-serif;
+            background-color: #69a2a3;
+background-image: linear-gradient(180deg, #69a2a3 52%, #3fa9c1 72%);
+
             width: 100vw; 
             height: 100vh;
             /*background-image: url(https://i.pinimg.com/originals/6f/55/50/6f55500dca2a884e37b8d1a50eda009a.png) ;*/
-            background-color: black;
+            
         }
 
         section {
-            width: 100%;
-            height: 340px;
-            background: url(https://images5.alphacoders.com/795/thumb-1920-795970.jpg) top center;
+            height: 300px;
+            background: url(https://c.wallhere.com/photos/d7/7e/music_guitar-241246.jpg!d) top center;
             backdrop-filter: #000 ;
             background-size: cover;
             overflow: hidden;
@@ -44,15 +55,21 @@ font-family: 'Gochi Hand', cursive;
             position: absolute;
             background: rgba(0, 0, 0, 0.301);
             width: 100%;
-            height: 340px;
+            height: 300px;
                         
         }
         .imageny{
-             width: 85px;
+             width: 50px;
             height: 30px;
         }
 
         .filacabecera{
+            background-color: black;
+        }
+
+        .cuadro{
+            width: 564em;
+            height: 400px;
             background-color: black;
         }
     </style>
@@ -62,63 +79,81 @@ font-family: 'Gochi Hand', cursive;
 <body>
 
     <div class="container-fluid p-0">
-    <!--CABECERA DE BUSQUEDA-->
+        <!--CABECERA DE BUSQUEDA-->
         <header class="fixed-top">
-            <div class="row filacabecera">
-                <div class="col-md-3 row bg-white m-0 mb-1">
-                <div class="col-md-5 d-flex justify-content-center d-flex align-items-center "style="background-color:black">
-                    <i class="fas fa-bars fa-lg" style="color:white"></i>
-                </div>
-                <div class="col-md-5 ml-3 ">
-                        <img class="imageny m-2 d-flex justify-content-center" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Logo_of_YouTube_%282015-2017%29.svg/1280px-Logo_of_YouTube_%282015-2017%29.svg.png">
-                </div>
-            </div>
+            <div class="row filacabecera p-2">
+                <div class="col-4 col-md-3 row  pr-0">
+                    <div class="col-1 col-md-5 d-flex justify-content-center d-flex align-items-center " style="background-color:black">
+                        <i class="fas fa-bars fa-lg" style="color:white"></i>
+                    </div>
+                    <div class="col-md-7 mt-2">
+                            <img class="imageny" src="http://www.peperevolution.com/assets/ico/64/Iconos-03.png"> <span class="text-white">Youtube</span>
 
-                <div class="col-md-5 m-0 p-0 d-flex align-items-center">
-                    
+                    </div>
+                        
+                </div>
+                <div class="col-8 col-md-7 m-0 p-0 d-flex align-items-center d-flex justify-content-end">
                     <label for="colFormLabelSm" class="col-md-2 col-form-label col-form-label text-white">Buscar</label>
                     <div class="input-group col-md-10">
 
-                        <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Buscar">
+                        <input id="buscar" type="text" class="form-control" onkeypress="buscarVideo(event, true)" 
+                            placeholder="Buscar">
                         <div class="input-group-prepend">
-                            <button class="input-group-text" onclick="Listar()" onkeypress="pulsar()" id="boton"><i class="fas fa-search"
-                                    title="Buscar"></i></button>
+                                <button class="input-group-text" onclick="buscarVideo(event, false)" id="boton"><a href="#carousel-video"><i class="fas fa-search"
+                                    title="Buscar"></i></a>
+                                </button>
                         </div>
                     </div>
-             
+
                 </div>
-                <div class="col-md-3  ml-auto m-0 p-3 pr-5">
-                <i class="fas fa-user float-right fa-lg" style="color:white"></i>
+                <div class="col-1 col-md-1  ml-auto m-0 p-3 pr-5">
+                    <i class="fas fa-user float-right fa-lg" style="color:white"></i>
                 </div>
             </div>
         </header>
 
         <!--SECCION VIDEOS-->
-        <section class="mt-5 ">
-        
-            <div class="seccionp col-md-12 row p-0 m-0 " id="listaVideos">
-                
+        <section class=" w-100">
+
+            <div class="seccionp container-fluid w-100 row p-0 m-0 d-flex justify-content-center">
 
             </div>
 
         </section>
-        <!--LINEA-->
-
-         <div class="bg-dark">
-        &nbsp
-        </div>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/riNTLAHnAnU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
         <!--ESPACIO REPRODUCCION-->
-        <div class="col-md-12 p-0 h-50 d-flex justify-content-center ">
-            <div class="col-6 bg-dark m-5 ">
+        
+        <div class="col-md-12 p-0 h-50 d-flex justify-content-center d-flex align-items-center bg-transparent" >
+            <div class="col-md-3 ml-5">
+                    <div id="like" class=" bg-transparent border-dark d-flex align-items-center d-flex justify-content-center">
+                    <img height="100px" width="200px" src="https://www.freeiconspng.com/uploads/youtube-like-png-15.jpg">
+                </div>
+            </div>
+            <div class="cuadro col-12 col-md-6 mt-0 d-flex justify-content-center  d-flex align-items-center shadow p-3 mb-5 rounded">
+
+                <iframe id="video-play" width="100%" height="315" src="https://www.youtube.com/embed/riNTLAHnAnU"
+                    frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
 
             </div>
+            <div class="col-md-3 p-4 pl-0 mr-5  d-flex align-items-center d-flex justify-content-center">
 
+                <div class=" ml-0 bg-transparent border-dark d-flex align-items-center d-flex justify-content-center">
+                    <img height="100px" width="200px" src="https://www.freeiconspng.com/uploads/youtube-dislike-ico-download-0.jpeg">
+                    <span id="dislike"></span>
+                </div>
+                
+            </div>
         </div>
 
-       
+        
+        <div class="row col-md-12  mt-5 d-flex justify-content-center d-flex align-items-center bg-transparent" id="carousel-video">
+            
+
+            </div>
     </div>
+
+
+
 
     <!--******************************************************************************************************************************-->
     <!-- Optional JavaScript -->
@@ -132,52 +167,63 @@ font-family: 'Gochi Hand', cursive;
 
     <script>
 
-        var listado = document.getElementById('listaVideos');
+        obtenerVideos(24, '')
 
-        function pulsar(e) {
-            if (e.keyCode === 13 && !e.shiftKey) {
-                e.preventDefault();
-                var boton = document.getElementById("boton");
-                angular.element(boton).triggerHandler('click');
+        function obtenerVideos(mostrar, buscar) {
+            let cardVideo = $('#card-video');
+            let carouselVideo = $('#carousel-video');
+
+            $.ajax({
+                url: 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=' + mostrar + '&order=viewCount&q=' + buscar + '&type=video&videoDefinition=any&key=AIzaSyD8KtrA3UwaI4wDZ6nxe4WOzqNfWxxjts4',
+                success: function (res) {
+                    let cadena = ''
+                    for (const item of res.items) {
+                        cadena += `
+                    <div class="col-9 col-md-2 mt-3">
+                        <div class="card carta mb-3">
+                        <div class="card-header">
+                            <img class="card-img-top" src="` + item.snippet.thumbnails.default.url + `" alt="Card image cap">
+                                </div>
+                                <div class="card-body">
+                                <h6 class="card-title">` + item.snippet.title + `</h6>
+                                </div>
+                            <div class="card-footer">
+                                <div class="text-center float-bottom"><a href="#" class="btn btn-danger" onclick="reproducirVideo('` + item.id.videoId + `')">Play</a></div>
+                            </div>
+                        </div>
+                    </div>
+                        `;
+                    }
+                    carouselVideo.html(cadena);
+                }
+            });
+        }
+
+        function buscarVideo(e, verificar) {
+            let buscar = $('#buscar').val();
+            if (verificar == true) {
+                if (e.keyCode == 13) {
+                    obtenerVideos(24, buscar)
+                }
+            } else {
+                obtenerVideos(24, buscar)
             }
         }
 
-        function Listar() {
+        function reproducirVideo(videoId,dislikeCount,likeCount) {            
+            let videoPlay = $('#video-play');
+            let idislike = $('#dislike');
+            let lbl1 = ''
+            let ilike = $('#like');
+            let lbl2 = ''
 
-            var busqueda = $('#inlineFormInputGroup').val();
-
-            console.log(busqueda.replace(" ", "+"))
-            var buscard = busqueda.replace(" ", "+");
-
-            var player;
-
-
-      
-
-
-            $.ajax({
-                url: 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&order=viewCount&q=' + buscard + '&type=video&videoDefinition=any&key=AIzaSyD8KtrA3UwaI4wDZ6nxe4WOzqNfWxxjts4',
-
-                success: function (res) {
-                    console.log(res)
-                    cadena = '';
-                    for (const item of res.items) {
-                        cadena += `
-                                <div class="cardlista card col-md-2 m-3 border-primary p-0 d-flex align-items-center pt-1">
-                                <div class="card-body p-0">
-                                <iframe class="p-0" width="200" height="100" src= "http://www.youtube.com/embed/`+ item.id.videoId + `"></iframe>
-                                </div>
-                                <div class="card-footer">
-                                <div >`+item.snippet.description+ `</div>
-                                </div>
-                                </div>
-                                `;
-                    }
-                    listado.innerHTML = cadena
-                }
-            });
-
-
+            videoPlay.attr('src', 'https://www.youtube.com/embed/' + videoId)
+            labl1=`<span>`+dislikeCount+`</span>`
+            labl1=`<span>`+item.statistics.likeCount+`</span>`
+            idislike.html(lbl1);
+            ilike.html(lbl2);
+            console.log(videoId)
+            console.log(item)
         }
 
     </script>
