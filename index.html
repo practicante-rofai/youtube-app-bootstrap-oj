@@ -1,3 +1,4 @@
+<!doctype html>
 <html lang="en">
 
 <head>
@@ -6,285 +7,145 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
         crossorigin="anonymous">
 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
         crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
 
-    <title>YouTube</title>
-    <link rel="shortcut icon" href="http://www.cndajin.com/data/wls/199/18290593.png">
+    <link href="https://fonts.googleapis.com/css?family=Freckle+Face" rel="stylesheet">
 
-    <link href="https://fonts.googleapis.com/css?family=Gochi+Hand|Kalam" rel="stylesheet">
+    <link type="text/js" href="assets/js/Script.js">
+    <link rel=" stylesheet " type="text/css" href="assets/css/Style.css">
 
-    <style>
-
-        .carta{
-            height: 330px;
-            transition: transform .2s;
-            background-image: linear-gradient(to bottom, #6c79fb, #4895ff, #34acff, #49c1ff, #70d3ff);
-
-        }
-        .carta:hover {
-            transform: scale(1.2);
-        }
-        body {
-            font-family: 'Rubik', sans-serif;
-            background-color: #69a2a3;
-background-image: linear-gradient(180deg, #69a2a3 52%, #3fa9c1 72%);
-
-            width: 100vw; 
-            height: 100vh;
-            /*background-image: url(https://i.pinimg.com/originals/6f/55/50/6f55500dca2a884e37b8d1a50eda009a.png) ;*/
-            
-        }
-
-        section {
-            height: 300px;
-            background: url(https://c.wallhere.com/photos/d7/7e/music_guitar-241246.jpg!d) top center;
-            backdrop-filter: #000 ;
-            background-size: cover;
-            overflow: hidden;
-            position: relative;
-            background-attachment: fixed;
-        }
-
-        .seccionp {
-
-            position: absolute;
-            background: rgba(0, 0, 0, 0.301);
-            width: 100%;
-            height: 300px;
-                        
-        }
-        .imageny{
-             width: 50px;
-            height: 30px;
-        }
-
-        .filacabecera{
-            background-color: black;
-        }
-
-        .cuadro{
-            width: 564em;
-            height: 400px;
-            background-color: black;
-        }
-    </style>
+    <title>Hello, world!</title>
 </head>
 
-
 <body>
-
-    <div class="container-fluid p-0">
-        <!--CABECERA DE BUSQUEDA-->
-        <header class="fixed-top">
-            <div class="row filacabecera p-2">
-                <div class="col-4 col-md-3 row pr-0">
-                    <div class=" col-md-5 d-md-flex justify-content-center d-md-flex align-items-center d-none d-md-block"
-                        style="background-color:black">
-                        <i class="fas fa-bars fa-lg" style="color:white"></i>
+    <header>
+        <div class="nav d-flex justify-content-center col-12 fixed-top" id="cabecera">
+            <div class="col-12 col-md-7" id="div2">
+                <div class="input-group my-2">
+                    <input type="text" class="form-control" onkeypress="buscarVideo(event, true)" id="Caja-Busqueda">
+                    <div class="input-group-prepend">
+                        <div class="btn input-group-text" onclick="buscarVideo(event, false)" id="boton"><i class="fas fa-search"></i></div>
                     </div>
-                    <div class="col-md-7 mt-2">
-                        <img class="imageny" src="http://www.cndajin.com/data/wls/199/18290593.png"> <span class="text-white">Youtube</span>
-
-                    </div>
-
-                </div>
-                <div class="col-8 col-md-7 m-0 p-0 d-flex align-items-center d-flex justify-content-center">
-                    <div class="input-group col-md-10">
-
-                        <input id="buscar" type="text" class="form-control " onkeypress="buscarVideo(event, true)"
-                            placeholder="Buscar"><a href="#carousel-video" onkeypress="buscarVideo(event, true)"></a>
-                        <div class="input-group-prepend">
-                            <button class="input-group-text" onclick="buscarVideo(event, false)" id="boton"><a href="#carousel-video"><i
-                                        class="fas fa-search" title="Buscar"></i></a>
-                            </button>
-                        </div>
-                    </div>
-
-                </div>
-                <div class=" col-md-1  ml-auto m-0 p-3 pr-5 d-none d-md-block">
-                    <i class="fas fa-user float-right fa-lg" style="color:white"></i>
-                </div>
-            </div>
-        </header>
-
-        <!--SECCION VIDEOS-->
-        <section class=" m-0">
-
-            <div class="seccionp container-fluid row p-0 m-0 d-flex justify-content-center">
-
-            </div>
-
-        </section>
-        <!--ESPACIO REPRODUCCION-->
-
-        <div class="col-md-12 p-0 h-50 d-flex justify-content-center d-flex align-items-center bg-transparent">
-            <div class="col-md-3 ml-5 d-md-flex align-items-center d-md-flex justify-content-center d-none d-md-block">
-                <div class="btn bg-transparent border-dark d-flex align-items-center d-flex justify-content-center" onclick="sumarl()">
-                    <img src="https://img.icons8.com/color/120/000000/good-quality.png">
-                    <span id="like"></span>
-                </div>
-            </div>
-            <div class="cuadro  col-md-6 mt-0 d-flex justify-content-center  d-flex align-items-center shadow p-md-3 p-0 mb-5 rounded">
-                <iframe class="h-xs-10" id="video-play" width="100%" height="315" src="https://www.youtube.com/embed/cyOqIKGbYkg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-
-            <div class="col-md-3 p-4 pl-0 mr-5 d-md-flex align-items-center d-md-flex justify-content-center d-none d-md-block">
-                <div class="btn ml-0 bg-transparent border-dark d-flex align-items-center d-flex justify-content-center" onclick="sumard()">
-                    <img src="https://img.icons8.com/color/120/000000/poor-quality.png">
-                    <span id="dislike"></span>
                 </div>
             </div>
         </div>
-
-
-        <div class="row col-md-12  mt-5 d-flex justify-content-center d-flex align-items-center bg-transparent" id="carousel-video">
-
-
+        <div class="container-fluid p-0 ml-0 row contenedor_principal w-100">
+            <div class="d-flex justify-content-center d-flex align-items-center letras">
+                <span class="m-4" id="l1">MUSIC ONLINE</span>
+            </div>
         </div>
-        <div class="card col-md-12">
-            <div class="fb-comments" data-href="file:///D:/PROYECTOS-PRACTICAS/youtube-app-bootstrap-oj/index.html#"
-                data-width="100%" data-numposts="5"></div>
+    </header>
+    <section>
+        <div class="d-flex justify-content-center mt-5">
+            <iframe id="video-play" width="560" height="315" src="https://www.youtube.com/embed/ARhk9K_mviE"
+                frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        </div>
+        <div class="container mt-5 d-flex justify-content-center section-content-videos">
+            <div class="row col-12 d-flex justify-content-center" id="Content-Videos">
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="bg-dark p-3">
+            <div>
+                <p class="text-center text-white small"> Make by </p>
+            </div>
+            <div class="text-center">
+                Jazmín Acevedo
+            </div>
         </div>
 
-    </div>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+            crossorigin="anonymous"></script>
 
 
+        <script>
+            var resultado = $('#reproductor');
 
+            obtenerVideos(25, '')
 
+            function obtenerVideos(mostrar, buscar) {
+                let conetenedorv = $('#Content-Videos');
 
-    <!--******************************************************************************************************************************-->
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
+                $.ajax({
+                    url: 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=' + mostrar + '&order=viewCount&q=' + buscar + '&type=video&videoDefinition=any&key=AIzaSyD8KtrA3UwaI4wDZ6nxe4WOzqNfWxxjts4',
+                    success: function (res) {
+                        let cadena = ''
+                        for (const item of res.items) {
+                            cadena += `
+                <div class="card col-sm-4 col-md-2 d-sm-block d-none m-2 mt-3">
+                <div class="card-header pt-3 p-0">
+                    <img class="card-img-top" src="` + item.snippet.thumbnails.default.url + `" alt="Card image cap" id="imagen-video">
+                </div>
+                <div class="card-body" style="height: 150px;">
+                    <h6 class="card-title">` + item.snippet.title + `</h6>
+                </div>
+                <div class="card-footer">
+                    <div class="text-center float-bottom"><a href="#" class="btn btn-danger" onclick="reproducirVideo('` + item.id.videoId + `')">Play</a></div>
+                </div>
+                </div>
+                
+                <div class="card col-sm-4 col-md-2 d-sm-none d-block m-2 mt-3">
+                <div class="card-body row col-12 p-0 pt-3">
+                    <img class="card-img-top col-7" src="` + item.snippet.thumbnails.default.url + `" alt="Card image cap" id="imagen-video">
+                    <h6 class="card-title col-5 p-0">` + item.snippet.title + `</h6>
+                </div>
+                <div class="card-footer">
+                    <div class="text-center float-bottom"><a href="#" class="btn btn-danger" onclick="reproducirVideo('` + item.id.videoId + `')">Play</a></div>
+                </div>
+                </div>
+                
+                `;
+                        }
 
-
-    <div id="fb-root"></div>
-
-    <script>(function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id;
-            js.src = 'https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v3.2';
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));</script>
-
-    <script>
-
-        obtenerVideos(24, '')
-
-        function obtenerVideos(mostrar, buscar) {
-            let cardVideo = $('#card-video');
-            let carouselVideo = $('#carousel-video');
-
-            $.ajax({
-                url: 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=' + mostrar + '&order=viewCount&q=' + buscar + '&type=video&videoDefinition=any&key=AIzaSyD8KtrA3UwaI4wDZ6nxe4WOzqNfWxxjts4',
-                success: function (res) {
-                    let cadena = ''
-                    for (const item of res.items) {
-                        cadena += `
-                    <div class="col-9 col-md-2 mt-3">
-                        <div class="card carta mb-3">
-                        <div class="card-header">
-                            <img class="card-img-top" src="` + item.snippet.thumbnails.default.url + `" alt="Card image cap">
-                                </div>
-                                <div class="card-body">
-                                <h6 class="card-title">` + item.snippet.title + `</h6>
-                                </div>
-                            <div class="card-footer">
-                                <div class="text-center float-bottom"><a href="#" class="btn btn-danger" onclick="reproducirVideo('` + item.id.videoId + `')">Play</a></div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                        `;
+                        conetenedorv.html(cadena);
                     }
-
-                    carouselVideo.html(cadena);
-                }
-            });
-        }
-
-        function buscarVideo(e, verificar) {
-            let buscar = $('#buscar').val();
-            if (verificar == true) {
-                if (e.keyCode == 13) {
-                    obtenerVideos(24, buscar)
-                    window.location = getElementById('#carousel-video');
-                }
-            } else {
-                obtenerVideos(24, buscar)
+                });
             }
-        }
 
-        function reproducirVideo(videoId) {
-            let videoPlay = $('#video-play');
-            videoPlay.attr('src', 'https://www.youtube.com/embed/' + videoId)
-            console.log(videoId)
-
-            let idislike = $('#dislike');
-
-            let ilike = $('#like');
-            $.ajax({
-                url: 'https://www.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=' + videoId + '&key=AIzaSyD8KtrA3UwaI4wDZ6nxe4WOzqNfWxxjts4',
-
-                success: function (lod) {
-                    console.log(lod)
-
-                    let labl1 = ''
-                    let labl2 = ''
-                    for (const item1 of lod.items) {
-                        labl1 = `<br/><span>` + item1.statistics.dislikeCount + `</span>`;
-                        labl2 = `<br/><span>` + item1.statistics.likeCount + `</span>`;
+            function buscarVideo(e, verificar) {
+                let buscar = $('#Caja-Busqueda').val();
+                if (verificar == true) {
+                    if (e.keyCode == 13) {
+                        obtenerVideos(25, buscar)
+                        window.location = getElementById('#Content-Videos');
                     }
-
-                    idislike.html(labl1);
-                    ilike.html(labl2);
-
-                }, error: function (err){
-console.log(err)
+                } else {
+                    obtenerVideos(25, buscar)
                 }
+            }
+
+            function reproducirVideo(videoId) {
+                let videoPlay = $('#video-play');
+                videoPlay.attr('src', 'https://www.youtube.com/embed/' + videoId)
+                console.log(videoId)
+                resultado.css(display = 'block');
+                resultado.slideToggle('slow');
+            }
+
+            $(function () {
+                $(window).scroll(function () {
+                    if ($(window).scrollTop() > 300) {
+                        $('#cabecera').addClass('change');
+
+                        console.log($('#cabecera'));
+                    } else if ($(window).scrollTop() < 300) {
+                        $('#cabecera').removeClass('change');
+                    }
+                });
             });
-
-        }
-
-        function sumarl(likeCount){
-            let ilike = $('#like');
-            let labl1 = ''
-            var sumal = likeCount+1;
-            labl1 = `<br/><span>` + sumal + `</span>`;
-            
-            ilike.html(labl1);
-        }
-        function sumard(dislikeCount){   
-            let idislike = $('#dislike');
-            let labl2 = ''       
-            var sumad = dislikeCount + 1;  
-            labl2 = `<br/><span>` + sumad + `</span>`;
-            idislike.html(labl2);
-            
-        }
-
-    </script>
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-131444426-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-131444426-1');
-</script>
-
+        </script>
 </body>
 
 </html>
